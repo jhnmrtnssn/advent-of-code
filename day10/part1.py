@@ -4,7 +4,7 @@
 
 def parseInput():
     lines = []
-    for line in (open("input.txt")):
+    for line in open("input.txt"):
         lines.append(line.strip())
     return lines
 
@@ -27,17 +27,17 @@ def expectedRightSide(char):
 
 
 def calcCorruptedChars(chars):
-    sum = 0
+    score_sum = 0
     for char in chars:
         if char == ")":
-            sum += 3
+            score_sum += 3
         if char == "]":
-            sum += 57
+            score_sum += 57
         if char == "}":
-            sum += 1197
+            score_sum += 1197
         if char == ">":
-            sum += 25137
-    return sum
+            score_sum += 25137
+    return score_sum
 
 
 ###### PART 1 ######

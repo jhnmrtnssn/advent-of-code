@@ -4,7 +4,7 @@
 
 def parseInput():
     lines = []
-    for line in (open("input.txt")):
+    for line in open("input.txt"):
         lines.append(line.strip())
     return lines
 
@@ -35,6 +35,7 @@ def valueModel(char):
         return 3
     if char == ">":
         return 4
+    return False
 
 
 def calcScore(remaining_chars):
