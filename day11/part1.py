@@ -16,12 +16,11 @@ def increaseNumber(num, is_boomed):
     if num == 0:
         if is_boomed:
             return 0
-        else:
-            return num+1
+        return num+1
+
     elif num == 9:
         return 0
-    else:
-        return num+1
+    return num+1
 
 
 def increaseAll(octopus_map):

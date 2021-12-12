@@ -6,7 +6,7 @@ def parseInput():
     entry_list = list([])
     output_list = list([])
 
-    for line in (open("input.txt")):
+    for line in open("input.txt"):
         line = line.split("|")
         entry_line = line[0].split()
         output_line = line[1].split()

@@ -8,6 +8,7 @@ def move(curr_d, curr_h, curr_aim, direction, length):
         return (curr_d, curr_h, curr_aim + length)
     if direction == "up":
         return (curr_d, curr_h, curr_aim - length)
+    return False
 
 d = 0
 h = 0

@@ -2,9 +2,8 @@
 # Part 1
 
 def loadNumbersAndBoards():
-    all_bingo_boards = list([])
-    bingo_board = list([])
-    id = 0
+    all_bingo_boards = []
+    bingo_board = []
 
     # Store all bingo boards from input file
     for index, line in enumerate(open("input.txt")):
@@ -15,7 +14,6 @@ def loadNumbersAndBoards():
             if line.strip() == "":
                 all_bingo_boards.append(bingo_board)
                 bingo_board = []
-                id += 1
             else:
                 row = line.strip().split(" ")
                 while len(row) > 5:

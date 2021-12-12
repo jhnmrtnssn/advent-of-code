@@ -7,20 +7,20 @@ v = np.zeros(12)
 np_gamma = np.zeros(12)
 np_eps = np.zeros(12)
 
-for index, line in enumerate(open("input.txt")):
-    for id, char in enumerate(line.strip()):
+for line in open("input.txt"):
+    for i, char in enumerate(line.strip()):
         if char == "1":
-            v[id] = int(v[id]) + 1
+            v[i] = int(v[i]) + 1
         else:
-            v[id] = int(v[id]) - 1
+            v[i] = int(v[i]) - 1
 
-for id, byte in enumerate(v):
+for i, byte in enumerate(v):
     if byte > 0:
-        np_gamma[id] = 1
-        np_eps[id] = 0
+        np_gamma[i] = 1
+        np_eps[i] = 0
     else:
-        np_gamma[id] = 0
-        np_eps[id] = 1
+        np_gamma[i] = 0
+        np_eps[i] = 1
 
 print(np_gamma)
 

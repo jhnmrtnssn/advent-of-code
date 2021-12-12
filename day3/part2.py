@@ -10,8 +10,8 @@ np_eps = np.zeros(12)
 # Store all bytes as np array
 all_bytes = np.zeros([1000, 12])
 for index, line in enumerate(open("input.txt")):
-    for id, char in enumerate(line.strip()):
-        all_bytes[index, id] = char
+    for i, char in enumerate(line.strip()):
+        all_bytes[index, i] = char
 
 ############ Find oxygen generator rating ############
 
@@ -22,19 +22,19 @@ OGR_list = all_bytes
 for bit in range(12):
     # Find the most common bit
     v = np.zeros(12)
-    for index, line in enumerate(OGR_list):
-        for id, char in enumerate(line):
+    for line in OGR_list:
+        for i, char in enumerate(line):
             if int(char) == 1:
-                v[id] = int(v[id]) + 1
+                v[i] = int(v[i]) + 1
             else:
-                v[id] = int(v[id]) - 1
+                v[i] = int(v[i]) - 1
 
     # Normalize the common bit
-    for id, value in enumerate(v):
+    for i, value in enumerate(v):
         if value >= 0:
-            np_gamma[id] = 1
+            np_gamma[i] = 1
         else:
-            np_gamma[id] = 0
+            np_gamma[i] = 0
 
     print(np_gamma)
 
@@ -67,19 +67,19 @@ OXY_list = all_bytes
 for bit in range(12):
     # Find the most common bit
     v = np.zeros(12)
-    for index, line in enumerate(OXY_list):
-        for id, char in enumerate(line):
+    for line in OXY_list:
+        for i, char in enumerate(line):
             if int(char) == 1:
-                v[id] = int(v[id]) - 1
+                v[i] = int(v[i]) - 1
             else:
-                v[id] = int(v[id]) + 1
+                v[i] = int(v[i]) + 1
 
     # Normalize the non-common bit
-    for id, byte in enumerate(v):
+    for i, byte in enumerate(v):
         if byte > 0:
-            np_eps[id] = 1
+            np_eps[i] = 1
         else:
-            np_eps[id] = 0
+            np_eps[i] = 0
 
     # Find index for all rows that contain the bit
     save_rows = np.zeros(1000)

@@ -2,7 +2,7 @@
 # Part 2
 
 def parseInput():
-    for line in (open("input.txt")):
+    for line in open("input.txt"):
         return list(map(int, (line.strip().split(","))))
 
 

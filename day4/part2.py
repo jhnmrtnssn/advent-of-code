@@ -4,7 +4,6 @@
 def loadNumbersAndBoards():
     all_bingo_boards = list([])
     bingo_board = list([])
-    id = 0
 
     # Store all bingo boards from input file
     for index, line in enumerate(open("input.txt")):
@@ -15,7 +14,6 @@ def loadNumbersAndBoards():
             if line.strip() == "":
                 all_bingo_boards.append(bingo_board)
                 bingo_board = []
-                id += 1
             else:
                 row = line.strip().split(" ")
                 while len(row) > 5:
@@ -82,7 +80,7 @@ for number in bingo_numbers:
                         playing = False
                         break
 
-    if playing == False:
+    if not playing:
         break
 
 unmarked_sum = 0
