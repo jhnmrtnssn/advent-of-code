@@ -52,12 +52,14 @@ def updateBasin(map, row, col, unique_positions):
     return unique_positions
 
 
-def calcBasinSize(map, row, col, value):
+def calcBasinSize(map, row, col):
     unique_positions = [[row, col]]
 
     for pos in unique_positions:
         unique_positions = updateBasin(map, pos[0], pos[1], unique_positions)
-        pygame.draw.rect(win, (50+value*20, 50+value*20, 255), (pos[0]*8, pos[1]*8, 8, 8))
+        value = map[pos[0]][pos[1]]
+        pygame.draw.rect(win, (value*20, value*20, 255), (pos[0]*8, pos[1]*8, 8, 8))
+        pygame.time.delay(2)
         pygame.display.update()
         pygame.event.get()
 
@@ -89,7 +91,7 @@ basin_size_list = []
 for row_id, row in enumerate(fullMap):
     for col_id, value in enumerate(row):
         if isLowPoint(fullMap, row_id, col_id):
-            basin_size = calcBasinSize(fullMap, row_id, col_id, value)
+            basin_size = calcBasinSize(fullMap, row_id, col_id)
             basin_size_list.append(basin_size)
             pygame.draw.rect(win, (150, 0, 150), (row_id*8, col_id*8, 8, 8))
 
