@@ -1,9 +1,20 @@
 # Advent of Code - Day 1
 # Part 2
 
+from typing import List
 
-string_digits = ["zero", "one", "two", "three", "four",
-                 "five", "six", "seven", "eight", "nine"]
+string_digits = [
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+]
 
 
 def parse_input(file):
@@ -16,7 +27,8 @@ def parse_input(file):
             calibration_lines.append(calibration_line)
     return calibration_lines
 
-def get_first_digit(line, reverse_order=False):
+
+def get_first_digit(line: List[str], reverse_order=False) -> int:
     if reverse_order:
         line.reverse()
 
@@ -34,7 +46,7 @@ def get_first_digit(line, reverse_order=False):
         if reverse_order:
             string_digit = string_digit[::-1]
 
-        string_line = ''.join(line)
+        string_line = "".join(line)
         if string_digit in string_line:
             index = string_line.find(string_digit)
             if index < string_digit_index:
@@ -46,8 +58,10 @@ def get_first_digit(line, reverse_order=False):
 
     return digit
 
-def get_calibration_value(line):
+
+def get_calibration_value(line: List[str]) -> int:
     return 10 * get_first_digit(line) + get_first_digit(line, reverse_order=True)
+
 
 def calc_total_calibration_value(lines):
     calibration_value = 0
@@ -55,9 +69,11 @@ def calc_total_calibration_value(lines):
         calibration_value += get_calibration_value(line)
     print(calibration_value)
 
+
 def main():
     lines = parse_input("input.txt")
     calc_total_calibration_value(lines)
+
 
 if __name__ == "__main__":
     main()
