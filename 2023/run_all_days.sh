@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DAYS="01 02 03 04 05 06 07 08 09"
+DAYS="01 02 03 04 05 06 07 08 09 10 11 12"
 
 echo "========================="
 echo "=  Advent of code 2023  ="
@@ -20,5 +20,5 @@ done
 total_time_ms=$(($(date +%s%3N)-$total_time_start_ms))
 
 echo "========================="
-echo "Total runtime: $(($total_time_ms/1000))s ${total_time_ms}ms"
+echo "Total runtime: $(($total_time_ms/1000))s $((${total_time_ms}%1000))ms"
 echo "========================="
