@@ -4,18 +4,14 @@
 from functools import lru_cache
 from typing import List
 
-placeable_items = ["?", "#"]
-
 
 def subgroup_can_be_placed(row, spring_length, i):
     # If any operational (.) in subgroup placement, can't be placed
-    for value in row[i : i + spring_length]:
-        if value not in placeable_items:
-            return False
+    if "." in row[i : i + spring_length]:
+        return False
     # If any previous space after subgroup is broken (#), cant be placed
-    for j in range(0, i):
-        if row[j] == "#":
-            return False
+    if "#" in row[0:i]:
+        return False
     # If there is no last element, it can be placed
     if len(row) == i + spring_length:
         return True
